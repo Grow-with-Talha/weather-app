@@ -9,7 +9,7 @@ import { WeatherData } from "../types";
 const WeatherContext = createContext({
   city: "Karachi",
   weatherData: null as WeatherData | null | "Error",
-  updateCity: (newCity: string) => {},
+  updateCity: (newCity: string) => newCity,
 });
 
 export const useWeather = () => useContext(WeatherContext);
@@ -50,6 +50,7 @@ export const WeatherProvider = ({
       setCity(newCity);
       setWeatherData(null);
       fetchWeather(newCity);
+      return newCity;
     },
     [fetchWeather]
   );
