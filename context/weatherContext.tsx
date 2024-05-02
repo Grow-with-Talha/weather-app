@@ -26,7 +26,7 @@ export const WeatherProvider = ({
 
   const fetchWeather = useCallback(async (city: string) => {
     const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
-    const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=5`;
+    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=5`;
 
     try {
       const response = await fetch(apiUrl);
